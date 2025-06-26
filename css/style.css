@@ -1,64 +1,65 @@
-/* ===== Reset and Base Styles ===== */
+/* ===== Reset and base styles ===== */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Include padding and border in element's total width/height */
+  box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  background: #111;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #111;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full viewport height */
+  padding: 40px 20px;
+  min-height: 100vh;
 }
 
-/* ===== Slider Container ===== */
+/* ===== Slider Wrapper ===== */
 .slider {
   position: relative;
-  width: 80%; /* Responsive width */
-  max-width: 900px; /* Maximum width limit */
-  height: 500px; /* Fixed height */
-  overflow: hidden; /* Hide slides overflowing the container */
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Subtle outer shadow */
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  background-color: #000;
 }
 
-/* ===== Slides Wrapper (holds all slides side by side) ===== */
+/* ===== Slides Container ===== */
 .slides {
   display: flex;
   width: 100%;
   height: 100%;
-  transition: transform 0.5s ease-in-out; /* Smooth slide animation */
+  transition: transform 0.5s ease-in-out;
 }
 
 /* ===== Individual Slide ===== */
 .slide {
-  min-width: 100%; /* Each slide takes full width */
+  min-width: 100%;
   height: 100%;
-  flex-shrink: 0; /* Prevent slide from shrinking */
+  position: relative;
 }
 
-/* ===== Media (Images / Videos) inside Slides ===== */
-.slide img,
-.slide video {
+.slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure media covers the whole slide */
+  object-fit: cover;
 }
 
-/* ===== Custom HTML Content Inside a Slide ===== */
+/* ===== Custom Content Slide ===== */
 .custom_content {
-  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
-  color: white;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -69,34 +70,95 @@ body {
 
 .custom_content p {
   font-size: 1.2rem;
+  max-width: 500px;
 }
 
-/* ===== Navigation Arrows (Previous & Next Buttons) ===== */
+/* ===== Navigation Buttons ===== */
 .prev,
 .next {
   position: absolute;
-  top: 50%; /* Vertically center */
+  top: 50%;
   transform: translateY(-50%);
-  padding: 12px 18px;
-  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent */
-  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
   border: none;
-  cursor: pointer;
+  padding: 10px 16px;
   font-size: 24px;
+  cursor: pointer;
   border-radius: 50%;
-  z-index: 3;
+  z-index: 5;
   transition: background 0.3s ease;
 }
 
 .prev:hover,
 .next:hover {
-  background-color: rgba(255, 255, 255, 0.4); /* On hover, lighten background */
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .prev {
-  left: 20px; /* Position on the left */
+  left: 20px;
 }
 
 .next {
-  right: 20px; /* Position on the right */
+  right: 20px;
+}
+
+/* ===== Dot Navigation ===== */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #999;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot.active {
+  background-color: red;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .slider {
+    height: 400px;
+  }
+
+  .custom_content h1 {
+    font-size: 2rem;
+  }
+
+  .custom_content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    height: 300px;
+  }
+
+  .prev,
+  .next {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+
+  .custom_content {
+    padding: 20px;
+  }
+
+  .custom_content h1 {
+    font-size: 1.5rem;
+  }
+
+  .custom_content p {
+    font-size: 0.95rem;
+  }
 }
