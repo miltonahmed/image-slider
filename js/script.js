@@ -2,11 +2,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   // ===== Select all necessary DOM elements =====
-  let slidesContainer = document.querySelector('.slides');       // The container that holds all slides
-  let prevButton = document.querySelector('.prev');              // The "Previous" navigation button
-  let nextButton = document.querySelector('.next');              // The "Next" navigation button
-  let dotsContainer = document.querySelector('.dots');           // The container where dot indicators go
-  let slide = document.querySelectorAll('.slide');               // All the individual slide elements
+  let slidesContainer = document.querySelector('.slides');       
+  let prevButton = document.querySelector('.prev');              
+  let nextButton = document.querySelector('.next');              
+  let dotsContainer = document.querySelector('.dots');           
+  let slide = document.querySelectorAll('.slide');               
 
   let slideCount = slide.length;                                 // Total number of slides
   let currentSlide = 0;                                          // Track the current active slide (starts at 0)
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
       updateSlider(index);                                       // Navigate to that slide
     });
   });
-  
+
   // ===== Autoplay Function =====
 function startAutoplay() {
   setInterval(() => {
