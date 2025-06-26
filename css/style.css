@@ -1,5 +1,102 @@
+/* ===== Reset and Base Styles ===== */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+
+body {
+  font-family: sans-serif;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+}
+
+/* ===== Slider Container ===== */
+.slider {
+  position: relative;
+  width: 80%; /* Responsive width */
+  max-width: 900px; /* Maximum width limit */
+  height: 500px; /* Fixed height */
+  overflow: hidden; /* Hide slides overflowing the container */
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Subtle outer shadow */
+}
+
+/* ===== Slides Wrapper (holds all slides side by side) ===== */
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out; /* Smooth slide animation */
+}
+
+/* ===== Individual Slide ===== */
+.slide {
+  min-width: 100%; /* Each slide takes full width */
+  height: 100%;
+  flex-shrink: 0; /* Prevent slide from shrinking */
+}
+
+/* ===== Media (Images / Videos) inside Slides ===== */
+.slide img,
+.slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure media covers the whole slide */
+}
+
+/* ===== Custom HTML Content Inside a Slide ===== */
+.custom_content {
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  color: white;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.custom_content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.custom_content p {
+  font-size: 1.2rem;
+}
+
+/* ===== Navigation Arrows (Previous & Next Buttons) ===== */
+.prev,
+.next {
+  position: absolute;
+  top: 50%; /* Vertically center */
+  transform: translateY(-50%);
+  padding: 12px 18px;
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  z-index: 3;
+  transition: background 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(255, 255, 255, 0.4); /* On hover, lighten background */
+}
+
+.prev {
+  left: 20px; /* Position on the left */
+}
+
+.next {
+  right: 20px; /* Position on the right */
 }
